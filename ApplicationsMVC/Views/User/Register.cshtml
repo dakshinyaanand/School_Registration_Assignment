@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary(true,"");
+    <table style="height:50px">
+        <tr>
+            <td>
+                <label>Select Branch</label>
+            </td>
+            <td>
+                @Html.DropDownList("ddlbranchid", Session["rsdata"] as SelectList)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Select Class id</label>
+            </td>
+            <td>
+                @Html.DropDownList("ddlclassid", new List<SelectListItem> {
+                    new SelectListItem { Text = "1", Value = "1" },
+                    new SelectListItem { Text = "2", Value = "2" },
+                    new SelectListItem { Text = "3", Value = "3" },
+                    new SelectListItem { Text = "4", Value = "4" },
+                    new SelectListItem { Text = "5", Value = "5" },
+                    new SelectListItem { Text = "6", Value = "6" },
+                    new SelectListItem { Text = "7", Value = "7" },
+                    new SelectListItem { Text = "8", Value = "8" },
+                    new SelectListItem { Text = "9", Value = "9" },
+                    new SelectListItem { Text = "10", Value = "10" }
+                })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Enter Candidate Name
+                </label>
+            </td>
+            <td>
+                @Html.TextBox("txtname")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Enter Age</label>
+            </td>
+            <td>
+                @Html.TextBox("txtage")
+            </td>
+        </tr>
+        <tr>
+            <td><label>Enter Date of Birth(dd-mm-yyyy)</label></td>
+            <td>@Html.TextBox("txtdob")</td>
+        </tr>
+        
+          <tr>
+        <td><label>Enter Address</label></td>
+        <td>@Html.TextArea("txtaddress")</td>
+    </tr>
+    </table>
+   
+       
+       
+  
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+}
+
